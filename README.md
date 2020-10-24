@@ -6,11 +6,11 @@ The applied IP can be configured by modifying `certs/config.cfg` default is
 
 ### Steps to create a certificate
 
-On Linux:
+```
+docker run --rm -it -v$PWD:/certs firefoxmetzger/create_localhost_ssl
+```
 
-    git clone https://github.com/FirefoxMetzger/create_ssl.git
-    cd create_ssl
-    # edit ./certs/config.cfg to use the SAN you desire
-    docker run --rm -it -v./certs:/certs firefoxmetzger/create_ssl
-
-On Windows: The same steps as above; however, when mounting `./certs` you have to specify the absolute path to the folder to use it with Docker for Windows.
+Replace the default config:
+```
+docker run --rm -it -v$PWD:/certs -v<absolute/path/to/config.cfg>:/config.cfg firefoxmetzger/create_localhost_ssl
+```
